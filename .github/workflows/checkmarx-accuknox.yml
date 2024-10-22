@@ -148,7 +148,7 @@ jobs:
 
       - name: Push SARIF file to AccuKnox
         run: |
-          curl --location '${{ secrets.CSPM_URL }}/api/v1/artifact/?tenant_id=${{ secrets.c40ea9dd-834e-488d-ba0e-33fb8566237b }}&data_type=CMX&save_to_s3=true&label_id=${{ secrets.LABEL_ID }}' \
-            --header 'Tenant-Id: ${{ secrets.c40ea9dd-834e-488d-ba0e-33fb8566237b }}' \
+          curl --location '${{ secrets.CSPM_URL }}/api/v1/artifact/?tenant_id=${{ secrets.TENANT_ID }}&data_type=CMX&save_to_s3=true&label_id=${{ secrets.LABEL_ID }}' \
+            --header 'Tenant-Id: ${{ secrets.TENANT_ID }}' \
             --header 'Authorization: Bearer ${{ secrets.CSPM_TOKEN }}' \
             --form 'file=@./tmp_sarif_with_snippets.sarif'
